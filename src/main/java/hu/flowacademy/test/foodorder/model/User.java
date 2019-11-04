@@ -9,7 +9,6 @@ import javax.persistence.Table;
 @Table
 public class User {
 
-
     @Column
     private String username;
 
@@ -19,7 +18,7 @@ public class User {
     @Column
     private String address;
 
-    public User(String username, String fullname, String adress) {
+    public User(String username, String fullname, String address) {
         this.username = username;
         this.fullname = fullname;
         this.address = address;

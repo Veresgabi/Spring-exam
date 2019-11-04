@@ -26,14 +26,14 @@ public class FoodResource {
         return foodService.findOne(id);
     }
 
-    /* @PutMapping("/")
-    public List<Food> update(@RequestBody Food food) {
-        return foodService.update(food);
+    @PutMapping("/{id}")
+    public Food update(@PathVariable("id") Long id, @RequestBody Food food) {
+        return foodService.update(id, food);
     }
 
     @DeleteMapping("/delete/{id}")
-    public List<Food> delete(@PathVariable Long id) {
-        return foodService.delete(id);
-    } */
+    public void delete(@PathVariable Long id) {
+        foodService.delete(id);
+    }
 
 }

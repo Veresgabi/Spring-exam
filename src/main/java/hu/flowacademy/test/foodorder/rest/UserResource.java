@@ -16,26 +16,31 @@ import java.util.Optional;
 public class UserResource {
 
     @Autowired
-    UserService userService;
+    public UserService userService;
 
     @PostMapping("/create")
-    User user (@RequestBody User user) {
+    public User user (@RequestBody User user) {
         return userService.save(user);
     }
 
-    @GetMapping("/{id}")
-    public Optional<User> findOne(@PathVariable String username) {
+    @GetMapping("/getall")
+    public List<User> findAll () {
+        return userService.findAll();
+    }
+
+    @GetMapping("/{username}")
+    public Optional<User> findOne(@PathVariable("username") String username) {
         return userService.findOne(username);
     }
 
-    /* @PutMapping("/")
-    public List<User> update(@RequestBody Cart cart) {
-        return userService.update(cart);
+    @PutMapping("/{id}")
+    public User update(@PathVariable("id") Long id, @RequestBody User user) {
+        return userService.update(id, user);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public List<User> delete(@PathVariable Long id) {
-        return userService.delete(id);
-    } */
+    @DeleteMapping("/delete/{username}")
+    public void delete(@PathVariable String username) {
+        userService.delete(username);
+    }
 
 }

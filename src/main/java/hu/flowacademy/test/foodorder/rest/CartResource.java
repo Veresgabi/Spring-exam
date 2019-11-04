@@ -26,15 +26,15 @@ public class CartResource {
         return cartService.findOne(id);
     }
 
-    /* @PutMapping("/")
-    public List<Cart> update(@RequestBody Cart cart) {
-        return cartService.update(cart);
-    }
+    /* @PutMapping("/{id}")
+    public Cart update(@PathVariable("id") Long id, @RequestBody Cart cart) {
+        return cartService.update(id, cart);
+    } */
 
     @DeleteMapping("/delete/{id}")
-    public List<Cart> delete(@PathVariable Long id) {
-        return cartService.delete(id);
-    } */
+    public void delete(@PathVariable Long id) {
+        cartService.delete(id);
+    }
 
 
 }

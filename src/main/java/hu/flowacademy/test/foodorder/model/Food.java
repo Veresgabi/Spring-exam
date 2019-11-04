@@ -17,7 +17,7 @@ public class Food {
     @Column
     private String parts;
 
-    @ManyToMany(mappedBy = "projects")
+    @ManyToMany(mappedBy = "foods")
     private Cart[] carts;
 
 
@@ -53,8 +53,7 @@ public class Food {
         this.carts = carts;
     }
 
-    public Food(Long id, String name, String parts, Cart[] carts) {
-        this.id = id;
+    public Food(String name, String parts, Cart[] carts) {
         this.name = name;
         this.parts = parts;
         this.carts = carts;
